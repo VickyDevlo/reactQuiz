@@ -1,12 +1,7 @@
 import {
   BookText,
-  Contact,
-  Database,
-  Home,
-  InfoIcon,
-  ShieldQuestion,
+  Home, 
   Timer,
-  Wrench,
 } from "lucide-react";
 
 export const sidebarData = [
@@ -14,11 +9,6 @@ export const sidebarData = [
     icon: Home,
     name: "Quiz",
     path: "/",
-  },
-  {
-    icon: Database,
-    name: "Pagination",
-    path: "/pagination",
   },
   {
     icon: BookText,

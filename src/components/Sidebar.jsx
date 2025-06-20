@@ -33,7 +33,7 @@ const Sidebar = () => {
                 : "opacity-0 invisible max-w-0"
             }`}
           >
-            Sidebar
+            MY APP
           </div>
         </div>
 
