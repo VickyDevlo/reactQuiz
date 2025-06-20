@@ -1,0 +1,2 @@
+//  What are the custom hooks ?
+// => custom hooks nothing but the normal javascript function. this function make code cleaner. using this function we can reuse logic in multiple components. It's always start with use (useInput, useToggle etc.). This can use other hooks like useState, useEffect etc.
