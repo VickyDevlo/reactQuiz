@@ -71,7 +71,7 @@ const Quiz = () => {
         <div className="flex flex-col items-center gap-3">
           <p className="md:text-3xl font-semibold text-blue-900 mt-6">
             Your Score:
-            <span className="text-blue-600 ml-2">0{score}</span>
+            <span className="text-blue-600 ml-2">{score}</span>
           </p>
           <p className="text-[11px] md:text-xl whitespace-nowrap text-gray-700 font-semibold">
             Thank you for participating! 🤗
