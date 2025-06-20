@@ -40,7 +40,7 @@ const Pagination = () => {
   }, []);
 
   return isLoading ? (
-    <div className="container mx-auto w-full">
+    <div className="container mx-auto w-full p-4">
       {/* Table skeleton loading */}
       <table className="table-fixed w-full rounded-xl overflow-hidden">
         <thead className="bg-gray-100 text-center">
@@ -106,8 +106,8 @@ const Pagination = () => {
       </div>
     </div>
   ) : (
-    <div className="container mx-auto w-full overflow-hidden">
-      <table className="table-fixed w-full rounded-xl ">
+    <div className="container mx-auto w-full overflow-x-auto p-4">
+      <table className="table-fixed w-full rounded-xl">
         <thead className="border border-gray-300 bg-gray-100 text-lg text-center">
           <tr>
             <th
@@ -134,12 +134,7 @@ const Pagination = () => {
             >
               Gender
             </th>
-            <th
-              className="px-4 py-2 font-semibold
-             text-gray-700"
-            >
-              Age
-            </th>
+             
           </tr>
         </thead>
         <tbody className="border border-gray-300">
@@ -161,9 +156,7 @@ const Pagination = () => {
                 <td className="px-4 py-2 text-center text-lg capitalize">
                   {items?.gender}
                 </td>
-                <td className="px-4 py-2 text-center text-lg capitalize">
-                  {items?.age}
-                </td>
+                
               </tr>
             ))}
         </tbody>

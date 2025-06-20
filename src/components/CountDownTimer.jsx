@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
+import { Pause, Play, RotateCcw } from "lucide-react";
 
 const CountDownTimer = () => {
   const [time, setTime] = useState(0);
@@ -16,19 +17,28 @@ const CountDownTimer = () => {
   };
 
   const formatTime = () => {
-    const min = String(Math.floor(time / 60)).padStart(2, "0");
+    const hrs = String(Math.floor(time / 3600)).padStart(2, "0");
+    const min = String(Math.floor((time % 3600) / 60)).padStart(2, "0");
     const sec = String(Math.floor(time % 60)).padStart(2, "0");
 
-    return `${min} : ${sec}`;
+    return `${hrs} : ${min} : ${sec}`;
+  };
+
+  const handleOnKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleStart();
+    } else if (e.key === "Escape") {
+      handleRest();
+    }
   };
 
   const handleStart = () => {
-    setIsActive(true);
-    setIsPause(false);
-  };
-
-  const handlePause = () => {
-    setIsPause(!isPause);
+    if (!isActive) {
+      setIsActive(true);
+      setIsPause(false);
+    } else {
+      setIsPause((prev) => !prev);
+    }
   };
 
   const handleRest = () => {
@@ -55,44 +65,42 @@ const CountDownTimer = () => {
   }, [isActive, isPause, time]);
 
   return (
-    <div
-      className="flex items-center w-[380px] flex-col shadow-lg p-6
+    <div className="flex items-center justify-center mt-6 px-2">
+      <div
+        className="flex items-center  md:w-[380px] flex-col shadow-lg p-2 md:p-6
      bg-accent rounded"
-    >
-      <h1 className="text-2xl font-semibold uppercase">countdown timer</h1>
-      <div className="flex flex-col justify-center items-center gap-4 my-5">
-        <input
-          type="number"
-          min={0}
-          value={inputVal}
-          onChange={onChangeHandler}
-          placeholder="Enter time in minuts"
-          className="border border-border px-4 py-1 w-full rounded"
-        />
-        <span className="text-3xl font-semibold">{formatTime()}</span>
-      </div>
-      <div className="flex items-center justify-evenly w-full">
-        <Button
-          disabled={isActive || inputVal === ""}
-          onClick={handleStart}
-          className={"cursor-pointer uppercase tracking-wider"}
-        >
-          Start
-        </Button>
-        <Button
-          disabled={!isActive}
-          onClick={handlePause}
-          className={"cursor-pointer uppercase tracking-wider"}
-        >
-          {isPause ? "Resume" : "Pause"}
-        </Button>
-        <Button
-          disabled={!isActive}
-          onClick={handleRest}
-          className={"cursor-pointer uppercase tracking-wider"}
-        >
-          Reset
-        </Button>
+      >
+        <h1 className="md:text-2xl font-semibold uppercase">countdown timer</h1>
+        <div className="flex flex-col justify-center items-center gap-4 my-5">
+          <input
+            type="number"
+            min={0}
+            value={inputVal}
+            onChange={onChangeHandler}
+            onKeyDown={handleOnKeyDown}
+            placeholder="Enter time in minuts"
+            className="border border-border px-4 py-1 w-full rounded"
+          />
+          <span className="text-xl md:text-3xl font-semibold">
+            {formatTime()}
+          </span>
+        </div>
+        <div className="flex items-center justify-center gap-3 w-full">
+          <Button
+            disabled={inputVal === ""}
+            onClick={handleStart}
+            className={"cursor-pointer uppercase tracking-wider"}
+          >
+            {isActive ? isPause ? <Play /> : <Pause /> : <Play />}
+          </Button>
+          <Button
+            disabled={!isActive}
+            onClick={handleRest}
+            className={"cursor-pointer uppercase tracking-wider"}
+          >
+            <RotateCcw />
+          </Button>
+        </div>
       </div>
     </div>
   );

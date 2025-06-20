@@ -61,11 +61,9 @@ export const InlineEditable = () => {
   }, [currentEditedId]);
 
   return (
-    <div className="flex flex-col items-center justify-center mt-12">
-      <h1 className="text-2xl text-center font-medium tracking-wide text-gray-800">
-        3 - Inline Editable Input
-      </h1>
-      <div className="mt-10 flex flex-col gap-4 w-full">
+    <div className="flex flex-col items-center justify-center px-1 md:px-4 mt-12">
+    
+      <div className="mt-10 flex flex-col gap-2 w-full">
         {items.map((item) => (
           <div
             key={item.id}
@@ -84,7 +82,7 @@ export const InlineEditable = () => {
                 className="w-full mr-3 p-1 text-white"
               />
             ) : (
-              <span className="text-2xl text-white">{item.text}</span>
+              <span className="md:text-2xl text-white">{item.text}</span>
             )}
             <Button
               onClick={() => handleEdit(item)}

@@ -1,28 +1,34 @@
-import { Contact, Home, InfoIcon, ShieldQuestion, Wrench } from "lucide-react";
+import {
+  BookText,
+  Contact,
+  Database,
+  Home,
+  InfoIcon,
+  ShieldQuestion,
+  Timer,
+  Wrench,
+} from "lucide-react";
 
 export const sidebarData = [
   {
     icon: Home,
-    name: "Home",
+    name: "Quiz",
     path: "/",
   },
   {
-    icon: ShieldQuestion,
-    name: "React Quiz",
-    path: "/quiz",
+    icon: Database,
+    name: "Pagination",
+    path: "/pagination",
   },
   {
-    icon: InfoIcon,
-    name: "About",
-    path: "/about",
+    icon: BookText,
+    name: "Inline Edit",
+    path: "/inline-edit",
   },
   {
-    icon: Contact,
-    name: "Contact",
-    path: "/contact",
-    meta: {
-      address: "abc",
-    },
+    icon: Timer,
+    name: "Counter",
+    path: "/counter",
   },
 ];
 
@@ -68,7 +74,8 @@ export const reactQuizData = [
     answer: "A hook that prevents unnecessary recreation of functions",
   },
   {
-    question: "What happens if you update state inside a `useEffect` without a dependency array?",
+    question:
+      "What happens if you update state inside a `useEffect` without a dependency array?",
     options: [
       "The effect will only run once",
       "The component will crash",
@@ -108,24 +115,21 @@ export const reactQuizData = [
     answer: "Comparing current DOM to updated DOM and syncing differences",
   },
   {
-    question: "Which hook is best suited for subscribing to a data stream like WebSocket?",
-    options: [
-      "useReducer",
-      "useEffect",
-      "useLayoutEffect",
-      "useMemo",
-    ],
+    question:
+      "Which hook is best suited for subscribing to a data stream like WebSocket?",
+    options: ["useReducer", "useEffect", "useLayoutEffect", "useMemo"],
     answer: "useEffect",
   },
   {
-    question: "What is the difference between `useEffect` and `useLayoutEffect`?",
+    question:
+      "What is the difference between `useEffect` and `useLayoutEffect`?",
     options: [
       "useLayoutEffect runs after paint, useEffect before paint",
       "useLayoutEffect runs synchronously after DOM mutations, useEffect runs asynchronously after paint",
       "There is no difference",
       "useLayoutEffect is only used in server-side rendering",
     ],
-    answer: "useLayoutEffect runs synchronously after DOM mutations, useEffect runs asynchronously after paint",
+    answer:
+      "useLayoutEffect runs synchronously after DOM mutations, useEffect runs asynchronously after paint",
   },
 ];
-
