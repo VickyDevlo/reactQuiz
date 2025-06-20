@@ -48,12 +48,12 @@ const Quiz = () => {
   const isQuizFinished = currentQuesIndex >= reactQuizData.length;
 
   return (
-    <PageLayout className="flex flex-col items-center gap-12">
+    <PageLayout className="flex flex-col items-center gap-6">
       {!isQuizFinished ? (
         <>
           <h1
             className="font-semibold text-center text-3xl md:text-4xl
-           text-blue-900 mt-4 italic"
+           text-blue-900 mt-2 italic"
           >
             React<span className="text-blue-600 ml-1">Quiz</span>
           </h1>
