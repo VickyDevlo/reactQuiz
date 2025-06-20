@@ -1,25 +1,21 @@
 import { PageLayout } from "@/components/PageLayout";
 import QuizList from "@/components/QuizList";
 import { reactQuizData } from "@/config";
-import React, { useEffect, useState } from "react";
+import { useQuizContext } from "@/context/QuizContext";
+import React, { useEffect } from "react";
 
 const Quiz = () => {
-  const [currentQuesIndex, setCurrentQuesIndex] = useState(0);
-  const [currentAnsIndex, setCurrentAnsIndex] = useState(null);
-  const [score, setScore] = useState(0);
-  const [countdown, setCountdown] = useState(null);
-
-  const handleAns = (option) => {
-    setCurrentAnsIndex(option);
-    if (option === reactQuizData[currentQuesIndex].answer) {
-      setScore((prev) => prev + 1);
-    }
-  };
-
-  const handleNextQues = () => {
-    setCurrentQuesIndex((prev) => prev + 1);
-    setCurrentAnsIndex(null);
-  };
+  const {
+    isQuizFinished,
+    reactQuizData,
+    setCurrentAnsIndex,
+    currentQuesIndex,
+    setCurrentQuesIndex,
+    countdown,
+    setCountdown,
+    score,
+    setScore,
+  } = useQuizContext();
 
   useEffect(() => {
     if (currentQuesIndex === reactQuizData.length) {
@@ -45,8 +41,6 @@ const Quiz = () => {
     return () => clearTimeout(timer);
   }, [countdown]);
 
-  const isQuizFinished = currentQuesIndex >= reactQuizData.length;
-
   return (
     <PageLayout className="flex flex-col items-center gap-6">
       {!isQuizFinished ? (
@@ -57,15 +51,7 @@ const Quiz = () => {
           >
             React<span className="text-blue-600 ml-1">Quiz</span>
           </h1>
-          <QuizList
-            question={reactQuizData[currentQuesIndex].question}
-            options={reactQuizData[currentQuesIndex].options}
-            currentAnsIndex={currentAnsIndex}
-            handleAns={handleAns}
-            handleNextQues={handleNextQues}
-            currentQuesIndex={currentQuesIndex}
-            reactQuizData={reactQuizData}
-          />
+          <QuizList />
         </>
       ) : (
         <div className="flex flex-col items-center gap-3">
