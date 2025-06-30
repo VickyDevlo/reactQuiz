@@ -35,6 +35,7 @@ const TaskTracker = () => {
             {showAddTask ? <X /> : <Plus />}
           </Button>
         </div>
+
         {showAddTask ? (
           <AddTask
             setTasks={setTasks}
@@ -45,6 +46,7 @@ const TaskTracker = () => {
           <Task tasks={tasks} handleDeleteTask={handleDeleteTask} />
         )}
       </div>
+      
     </PageLayout>
   );
 };
