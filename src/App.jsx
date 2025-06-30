@@ -1,5 +1,6 @@
 import Router from "./components/Router";
 import Sidebar from "./components/Sidebar";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <Router />
         </main>
       </div>
+      <Toaster />
     </>
   );
 }

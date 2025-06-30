@@ -5,7 +5,7 @@ import { sidebarData } from "@/config";
 import { Button } from "./ui/button";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen((prev) => !prev);
 

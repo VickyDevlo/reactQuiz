@@ -1,6 +1,5 @@
 import { PageLayout } from "@/components/PageLayout";
 import QuizList from "@/components/QuizList";
-import { reactQuizData } from "@/config";
 import { useQuizContext } from "@/context/QuizContext";
 import React, { useEffect } from "react";
 
@@ -42,18 +41,8 @@ const Quiz = () => {
   }, [countdown]);
 
   return (
-    <PageLayout className="flex flex-col items-center gap-6">
-      {!isQuizFinished ? (
-        <>
-          <h1
-            className="font-semibold text-center text-3xl md:text-4xl
-           text-blue-900 mt-2 italic"
-          >
-            React<span className="text-blue-600 ml-1">Quiz</span>
-          </h1>
-          <QuizList />
-        </>
-      ) : (
+    <PageLayout className="flex flex-col items-center w-full gap-6">
+      {isQuizFinished ? (
         <div className="flex flex-col items-center gap-3">
           <p className="md:text-3xl font-semibold text-blue-900 mt-6">
             Your Score:
@@ -66,6 +55,18 @@ const Quiz = () => {
             Restarting in {countdown} second{countdown !== 1 ? "s" : ""}...
           </p>
         </div>
+      ) : (
+        <>
+          <h1
+            className="font-semibold text-center text-3xl md:text-4xl
+           text-blue-900 mt-2 italic"
+          >
+            React<span className="text-blue-600 ml-1">Quiz</span>
+          </h1>
+
+          <QuizList />
+        </>
+        
       )}
     </PageLayout>
   );

@@ -15,7 +15,7 @@ const QuizList = () => {
 
   return (
     <div
-      className="text-center bg-blue-950 max-w-[580px] w-full p-4 rounded-md
+      className="text-center bg-blue-950 -full p-4 rounded-md
      shadow"
     >
       <p className="text-sm md:text-2xl text-white font-semibold mb-4 italic">

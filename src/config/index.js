@@ -1,6 +1,7 @@
 import {
   BookText,
   Home, 
+  ListTodo, 
   Timer,
 } from "lucide-react";
 
@@ -19,6 +20,11 @@ export const sidebarData = [
     icon: Timer,
     name: "Counter",
     path: "/counter",
+  },
+  {
+    icon: ListTodo,
+    name: "Task-Tracker",
+    path: "/task-tracker",
   },
 ];
 
