@@ -52,7 +52,7 @@ const Sidebar = () => {
                   <data.icon className="shrink-0" />
                   <span
                     title={!isOpen ? data.name : ""}
-                    className={`font-medium text-sm md:text-md transition-all duration-300 ease-in-out whitespace-nowrap ${
+                    className={`truncate font-medium text-sm md:text-md transition-all duration-300 ease-in-out whitespace-nowrap ${
                       isOpen ? "opacity-100 visible" : "opacity-0 invisible"
                     }`}
                   >

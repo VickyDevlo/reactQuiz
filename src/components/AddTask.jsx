@@ -31,7 +31,7 @@ export const AddTask = ({ setTasks, setShowAddTask }) => {
         }
         placeholder="Add Task"
         required
-        className="p-2 border rounded mt-1 max-md:placeholder:text-sm"
+        className="p-2 border rounded mt-1 w-full max-md:placeholder:text-sm"
       />
       <label className="mt-4 max-md:text-sm">Day & Time</label>
       <input
@@ -42,7 +42,7 @@ export const AddTask = ({ setTasks, setShowAddTask }) => {
           setFormData((prev) => ({ ...prev, day: e.target.value }))
         }
         required
-        className="p-2 border rounded mt-1 text-sm"
+        className="p-2 border rounded mt-1 text-sm w-full"
       />
 
       <Button disabled={isDisabled} type="submit" className="mt-4 text-lg">
