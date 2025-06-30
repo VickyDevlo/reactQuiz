@@ -18,7 +18,7 @@ const TaskTracker = () => {
     <PageLayout className="flex flex-col items-center justify-center container mx-auto mt-7">
       <div className="border border-border rounded-md max-w-[500px] w-full p-2 md:p-7">
         <div className="flex items-center  justify-between gap-3 flex-wrap mb-5">
-          <h1 className="max-md:whitespace-nowrap md:text-3xl font-semibold">
+          <h1 className="truncate max-md:whitespace-nowrap md:text-3xl font-semibold">
             Task Tracker
           </h1>
 

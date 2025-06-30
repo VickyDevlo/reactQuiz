@@ -34,17 +34,28 @@ export const AddTask = ({ setTasks, setShowAddTask }) => {
         className="p-2 border rounded mt-1 w-full max-md:placeholder:text-sm"
       />
       <label className="mt-4 max-md:text-sm">Day & Time</label>
-      <input
-        type="datetime-local"
-        name="day"
-        placeholder="Add Day & Time"
-        value={formData.day}
-        onChange={(e) =>
-          setFormData((prev) => ({ ...prev, day: e.target.value }))
-        }
-        required
-        className="p-2 border rounded mt-1 text-sm w-full"
-      />
+      <div className="relative w-full mt-4">
+        <label
+          htmlFor="day"
+          className={`absolute left-3 top-2 text-gray-500 text-sm transition-all duration-200 pointer-events-none
+      ${formData.day ? "text-xs -top-2.5 bg-white px-1" : ""}
+    `}
+        >
+          Add Day & Time
+        </label>
+
+        <input
+          type="datetime-local"
+          name="day"
+          id="day"
+          value={formData.day}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, day: e.target.value }))
+          }
+          required
+          className="p-2 border rounded text-sm w-full pt-6"
+        />
+      </div>
 
       <Button disabled={isDisabled} type="submit" className="mt-4 text-lg">
         Save Task
