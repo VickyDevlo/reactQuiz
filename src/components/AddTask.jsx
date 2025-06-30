@@ -37,6 +37,7 @@ export const AddTask = ({ setTasks, setShowAddTask }) => {
       <input
         type="datetime-local"
         name="day"
+        placeholder="Add Day & Time"
         value={formData.day}
         onChange={(e) =>
           setFormData((prev) => ({ ...prev, day: e.target.value }))

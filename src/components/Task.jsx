@@ -7,18 +7,18 @@ export const Task = ({ tasks, handleDeleteTask }) => {
       {tasks.map((task, i) => (
         <div key={i} className="truncate bg-muted py-2.5 px-2 md:px-5 m-1.5">
           <div className="flex items-center justify-between">
-            <h1 className="text-sm md:text-lg font-semibold">{task.text}</h1>
+            <h1 className="text-sm md:text-lg font-semibold truncate">
+              {task.text}
+            </h1>
             <X
               color="red"
               strokeWidth={5}
-              size={18}
+              size={16}
               onClick={() => handleDeleteTask(task)}
-              className="cursor-pointer"
+              className="cursor-pointer flex-shrink-0 "
             />
           </div>
-          <span className=" font-medium text-xs">
-            {formatDate(task.day)}
-          </span>
+          <span className="font-medium text-muted-foreground max-md:text-xs">{formatDate(task.day)}</span>
         </div>
       ))}
     </>
